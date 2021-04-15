@@ -6,8 +6,29 @@ class Formatter {
 
   static sanitize( string ) {
       // use regex, can use rubular?
-      // replace these characters with empty string
+      
+      // replace non matching characters with an empty string
     return string.replace( /[^A-Za-z0-9 '-]/g, '' )
+    // [] is a range
+    // [A-Z] is all letters A-Z
+    // [a-z] is all letters a-z
+    // [0-9] is all numbers 0-9
+    // negated charactersets: ^ will match everything except these 
+    // if not in brackets, ^ will match anything at the beginning of a string
+    // [^A-Za-z0-9] so this will replace everything but these characters
+    
+    // '
+    // maintains white space, like here: "ca$@#tching cold"
+    
+    // - maintains the dash, like here: "Entertaining-Elephants"
+
+
+    // /g matches every occurence
+    // "AABBDDDEEE".match( /[A-C]/) so this only returns the first A
+    // "AABBDDDEEE".match( /[A-C]/g) this returns all the matching letters
+
+
+    // [^A-Za-z0-9 '-]
   }
 
   static titleize( sentence ) {
